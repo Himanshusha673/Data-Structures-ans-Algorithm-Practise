@@ -1,3 +1,5 @@
+package LinkedList;
+
 import java.util.Scanner;
 
 public class FindMiddleElement {
@@ -15,7 +17,7 @@ public class FindMiddleElement {
         System.out.print(head.data+" ");
         print(head.next);
     }
-    private static FindMiddleElement takeInput() {
+    public static FindMiddleElement takeInput() {
         Scanner sc= new Scanner(System.in);
         FindMiddleElement head= null;
         FindMiddleElement tail=null;
