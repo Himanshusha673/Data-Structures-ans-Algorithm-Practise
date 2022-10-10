@@ -147,74 +147,12 @@ public class BinarySearchTree<T> {
            // arr.length%2==0?middle= arr.length/2:middle= (arr.length-1)/2;
 //           BinarySearchTree<Integer> newRoot= createBSTusingSortedArray(arr,0,arr.length-1);
 //           printTreeLevelWise(newRoot);
-           if(isBST(root) ){
-               System.out.println(" this is BSt");
 
-           }else{
-               System.out.println(" It i not a BSt");
-
-           }
      // isBST(newRoot) ? System.out.println("no Bst") : System.out.println("not a BSt");
 
     }
 
-    private static BinarySearchTree<Integer> createBSTusingSortedArray(int[] arr,int s,int e) {
-        if(s>e) {
-            return null;
-
-        }
-        int middle=(s+e)/2;
-        BinarySearchTree<Integer> root=new BinarySearchTree<Integer>(arr[middle]);
-//        if(s==e){
-//            return root;
-//        }
-        root.left=createBSTusingSortedArray(arr,s,middle-1);
-        root.right=createBSTusingSortedArray(arr,middle+1,e);
-        return root;
 
 
-
-
-
-    }
-   static BinarySearchTree<Integer> prev=null;
-
-    public static boolean isBST(BinarySearchTree<Integer> root){
-
-        // First Assumption
-//        if(root==null){
-//            return true;
-//        }
-//        if(!isBST((root.left))){
-//            return false;
-//
-//        }
-//        if(prev!=null&&prev.data>=root.data){
-//            return false;
-//
-//        }
-//        prev=root;
-//        return isBST(root.right);
-//
-
-        //// Second Assumption and easy to UnderStand
-        return helperISBST(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
-
-
-
-    }
-
-    private static boolean  helperISBST(BinarySearchTree<Integer> root, int minValue, int maxValue) {
-        if( root == null){
-            return true;
-        }
-        if( root.data<minValue||root.data>maxValue){
-            return false;
-
-        }
-        return (  helperISBST(root.left,minValue,root.data-1)&&helperISBST(root.right,root.data+1,maxValue));
-
-
-    }
 
 }
