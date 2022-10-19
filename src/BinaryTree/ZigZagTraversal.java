@@ -3,6 +3,7 @@ package BinaryTree;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class ZigZagTraversal {
     public static void main(String[] args) {
@@ -13,40 +14,41 @@ public class ZigZagTraversal {
 
     private static ArrayList<Integer> zigzag(BinaryTreeLevelwise<Integer> root) {
         ArrayList<Integer> arr= new ArrayList<>();
-        Queue<BinaryTreeLevelwise> node= new LinkedList<>();
-        boolean ritoLe=false;
-        if(root==null) return null;
-        else node.add(root);
-        while(!node.isEmpty()){
-            BinaryTreeLevelwise curr= node.poll();
-            ritoLe=!ritoLe;
-            if(ritoLe){
+        Stack<BinaryTreeLevelwise> ms= new Stack<>();
+        Stack<BinaryTreeLevelwise> childStack= new Stack<>();
+        ms.push(root);
+        boolean leftTORight=true;
 
-                if(curr.right!=null){
-                    System.out.println( "R"+curr.right.data);
-
-                    node.add(curr.right);
+        while(!ms.isEmpty()){
+            //remove ,print , addtostack
+            BinaryTreeLevelwise<Integer> currNode=ms.pop();
+            arr.add(root.data);
+            if(leftTORight){
+                //means we are moving left to right  then adding elemnt into stack fromleft to right
+                if(currNode.left!=null){
+                    childStack.add(currNode.left);
                 }
-                if(curr.left!=null){
-                    System.out.print(  "L"+curr.left.data+",");
-                    node.add(curr.left);
+                if(currNode.right!=null){
+                    childStack.add(currNode.right);
                 }
             }else{
-                if(curr.left!=null){
-                    System.out.print(  "L"+curr.left.data+",");
-                    node.add(curr.left);
+                //else add element into right to left in child statck
+                if(currNode.right!=null){
+                    childStack.add(currNode.right);
                 }
-                if(curr.right!=null){
-                    System.out.println( "R"+curr.right.data);
-
-                    node.add(curr.right);
+                if(currNode.left!=null){
+                    childStack.add(currNode.left);
                 }
-
-
             }
-            arr.add((Integer) curr.data);
+            if(ms.isEmpty()){
+                //means one level complete and now main stack
+                // becomes child and vice versa child stack is empty because main stack isd empty this time
+                leftTORight=!leftTORight;
+                Stack<BinaryTreeLevelwise> temp=ms;
+                ms=childStack;
+                childStack=temp;
+            }
         }
         return arr;
-
     }
 }
