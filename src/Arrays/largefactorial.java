@@ -1,4 +1,4 @@
-//
+package Arrays;//
 //Input:
 //        N = 5
 //        A[] = {0, 1, 2, 3, 4}
@@ -27,7 +27,9 @@ import java.util.Arrays;
 
 public class largefactorial {
 
+
     public static void main(String[] args) {
+        int mod=1000000000+7;
 
         int arr[] ={0, 1, 2, 3, 4};
         int n= arr.length;
@@ -37,13 +39,18 @@ public class largefactorial {
                 max=arr[i];
             }
         }
-        long[] factorial=new long[max+1];
+        long[] factorial=new long[max-1];
         factorial[0]=1;
 
         for(int i=1;i<=max;i++){
             factorial[i]=i*factorial[i-1];
         }
-        System.out.println(Arrays.toString(factorial));
+        long[] finalArray=new long[arr.length];
+        for(int i=0;i<arr.length;i++){
+            finalArray[i]=factorial[arr[i]];
+
+        }
+        System.out.println(Arrays.toString(finalArray));
 
 
     }

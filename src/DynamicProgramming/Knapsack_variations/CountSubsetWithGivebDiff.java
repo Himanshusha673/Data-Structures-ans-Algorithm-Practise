@@ -1,10 +1,9 @@
 package DynamicProgramming.Knapsack_variations;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class SubsetSumCount {
+public class CountSubsetWithGivebDiff {
     static int mod =(int)Math.pow(10,9)+7;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -13,9 +12,12 @@ public class SubsetSumCount {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        int sum = sc.nextInt();
+        int diff = sc.nextInt();
+        int totalSum=0;
+        for (int val:arr) totalSum+=val;
+        int s1=(diff+totalSum)/2;
 
-        System.out.println(countSubsetSum(arr,sum));
+        System.out.println(countSubsetSum(arr,s1));
     }
 
     private static int countSubsetSum(int[] a,int sum) {
@@ -52,8 +54,5 @@ public class SubsetSumCount {
 
         return tab[n][sum] % mod;
     }
-
-
-
 
 }

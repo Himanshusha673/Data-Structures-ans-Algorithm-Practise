@@ -1,3 +1,5 @@
+package Basics;
+
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
@@ -22,8 +24,6 @@ public class Anagram {
 
         if (str1.length() != str2.length()) {
             System.out.println("Strings are not anagram");
-
-
         } else {
          char [] a = str1.toCharArray();
           char[] b = str2.toCharArray();
