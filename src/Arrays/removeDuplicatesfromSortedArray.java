@@ -1,3 +1,5 @@
+package Arrays;
+
 import java.util.Arrays;
 //Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.
 //Example 1:
@@ -15,50 +17,24 @@ import java.util.Arrays;
 
 public class removeDuplicatesfromSortedArray {
     public static void main(String[] args) {
-        int []arr={0,0,1,1,1,2};
-        System.out.println( removeDuplicates(arr));
+        int[] arr = {0, 0, 1, 1, 1, 2};
 
-
-
-
-
+        System.out.println(removeDuplicates(arr));
         System.out.println(Arrays.toString(arr));
     }
-    private static int removeDuplicates(int [] nums){
-        int i=2;
-        int elemIndex=2;
-        while(elemIndex< nums.length){
-            if(nums[elemIndex]!=nums[i-2]){
-                if(i<elemIndex){
-                    nums[i]=nums[elemIndex];
 
-                    i++;
-                    elemIndex++;
-                }
-                else{
-                    elemIndex++;
-                    i++;
+    private static int removeDuplicates(int[] arr) {
+        int i = 0;
+        int j = 1;
 
-                }
-
-            }else{
-                elemIndex++;
-
-
+        while (j < arr.length) {
+            if(arr[i]!=arr[j]){
+                arr[i+1]=arr[j];
+                i++;
             }
-
-
+            j++;
         }
-        return i;
-
-
-
-
-
-
-
-
-
+        return i+1;
 
 
     }

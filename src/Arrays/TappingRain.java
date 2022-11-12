@@ -1,3 +1,5 @@
+package Arrays;
+
 public class TappingRain {
     public static void main(String[] args) {
         int [] arr = {8,8,2,4,5,5,1};

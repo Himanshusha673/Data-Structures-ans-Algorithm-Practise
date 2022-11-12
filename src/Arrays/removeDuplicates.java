@@ -1,3 +1,5 @@
+package Arrays;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,16 +17,7 @@ public class removeDuplicates {
         int []arr={1,2,1,1,3,4,5,3,6};
         System.out.println( removeDuplicates(arr));
 
-
-
-
-
         System.out.println(Arrays.toString(arr));
-
-
-
-
-
     }
     private  static int removeDuplicates(int [] nums){
         HashMap<Integer, Boolean> map = new HashMap<Integer, Boolean>();
@@ -33,18 +26,10 @@ public class removeDuplicates {
         for (int i = 0; i < nums.length; i++) {
 
             if (map.containsKey(nums[i])) {
-
                 continue;
-
-
             }
            // output.add(nums[i]);
             map.put(nums[i], true);
-
-
-
-
-
         }
  return nums.length;
 
