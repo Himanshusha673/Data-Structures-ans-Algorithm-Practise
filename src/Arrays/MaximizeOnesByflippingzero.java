@@ -20,10 +20,8 @@ public class MaximizeOnesByflippingzero {
             if(arr[i]==0){
                 countZeroes++;
             }
-            // if count greater than k means no of zeroes in our length
-            // ans is gretaer then that of whichh is given to us so we are
-            // just make pointer whihc decreses the count untill count becomes equal
-            // to k so that in ourn length zeroes are euwal to k
+            // if count greater than k then we need to balance zeroesCount
+            // means move j untill count of zeroes becomes equal to k when we find zeroes
             while(countZeroes>k){
                 j++;
                 if(arr[j]==0){
@@ -32,6 +30,7 @@ public class MaximizeOnesByflippingzero {
             }
             // length of ones after flippinng z eroes
              int currLen=i-j;
+            // storing maxLength into ans var
             if(currLen>ans){
         ans=currLen;
     }

@@ -26,6 +26,8 @@ public class MyPriorityQueue {
    int size(){
        return heap.size();
    }
+
+
    void insert(int val){
        heap.add(val);
        int childIndex=heap.size()-1;

@@ -12,9 +12,6 @@ public class LargestSumSubArray {
             arr[i] = sc.nextInt();
         }
         System.out.println(maximumContiguousSubArray(arr));
-
-
-
     }
 
     private static int maximumContiguousSubArray(int[] arr) {
